@@ -68,8 +68,10 @@ def callback():
 
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=ph.read(event.message.text))
-        )
+            ImageSendMessage(
+                    original_content_url = https://st3.depositphotos.com/9880800/16822/i/950/depositphotos_168222038-stock-photo-man-using-smartphone.jpg?forcejpeg=true,
+                    preview_image_url = https://st3.depositphotos.com/9880800/16822/i/950/depositphotos_168222038-stock-photo-man-using-smartphone.jpg?forcejpeg=true)
+)
 
     return 'OK'
 
