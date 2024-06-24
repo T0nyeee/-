@@ -1,20 +1,29 @@
 import requests
 from bs4 import BeautifulSoup
-#word = input( '請輸入中文字:' )
-def read(word):
-    url = f'https://dict.revised.moe.edu.tw/search.jsp?md=1&word={word}#searchL'
 
-    html = requests.get( url )
-    bs = BeautifulSoup(html.text,'lxml')
-    data = bs.find('table', id='searchL')
+def get_image_url(word):
+    url = f'https://ideaking.info/searchresult/type=image&page=1&keywords={word}'
+
     try:
-        row = data.find_all('tr')[2]
-        chinese = row.find('cr').text
-        phones = row.find_all('code')
-        phone = [e.text for e in phones]
-        s = " ".join( phone )
-        # s = row.find('sub')
-        return( chinese +" =>" + s )
-    except:
-        return( '查無此字' )
-#read(word)
+        html = requests.get(url)
+        html.raise_for_status()  # 確保請求成功
+
+        bs = BeautifulSoup(html.content, 'lxml')
+        data = bs.find('div', id='search-results-gallery')
+
+        if data:
+            # 找到第一個圖片元素
+            img_tag = data.find('img')
+            if img_tag:
+                img_src = img_tag.get('src')
+                return img_src
+            else:
+                return '找不到圖片'
+        
+        else:
+            return '找不到搜尋結果'
+
+    except requests.exceptions.RequestException as e:
+        return f"Error fetching URL: {e}"
+
+
