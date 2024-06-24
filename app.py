@@ -71,8 +71,8 @@ def callback():
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(
-                    original_content_url = get_image_url(event.message.text),
-                    preview_image_url =get_image_url(event.message.text))
+                    original_content_url = ph.get_image_url(event.message.text),
+                    preview_image_url =ph.get_image_url(event.message.text))
 )
 
     return 'OK'
