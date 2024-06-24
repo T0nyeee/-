@@ -71,8 +71,8 @@ def callback():
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(
-                    original_content_url = '',
-                    preview_image_url = 'https://st4.depositphotos.com/13324256/19600/i/950/depositphotos_196008148-stock-photo-top-view-delicious-roasted-steak.jpg?forcejpeg=true')
+                    original_content_url = f'https://ideaking.info/searchresult/type=image&page=1&keywords={word}',
+                    preview_image_url = 'f'https://ideaking.info/searchresult/type=image&page=1&keywords={word} forcejpeg=true')
 )
 
     return 'OK'
