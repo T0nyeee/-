@@ -16,9 +16,10 @@
 import os
 import sys
 import phonetic as ph
+
 from argparse import ArgumentParser
-from linebot.models import (
-ImageSendMessage)
+
+
 from flask import Flask, request, abort
 from linebot import (
     LineBotApi, WebhookParser
@@ -27,7 +28,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 )
 
 app = Flask(__name__)
