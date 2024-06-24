@@ -72,7 +72,7 @@ def callback():
             event.reply_token,
             ImageSendMessage(
                     original_content_url = f'https://ideaking.info/searchresult/type=image&page=1&keywords={word}',
-                    preview_image_url = 'f'https://ideaking.info/searchresult/type=image&page=1&keywords={word} forcejpeg=true')
+                    preview_image_url = 'f'https://ideaking.info/searchresult/type=image&page=1&keywords={word}')
 )
 
     return 'OK'
